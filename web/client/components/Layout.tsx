@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import Link from 'next/link';
 import Head from 'next/head';
 import setting from '../setting';
 import Pages from './pages';
@@ -9,7 +8,7 @@ type Props = {
   title?: string
 };
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
+const Layout = ({ children, title = setting.title }: Props) => (
   <div>
     <Head>
       <title>{title}</title>
