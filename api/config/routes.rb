@@ -7,7 +7,8 @@ Rails.application.routes.draw do
       get 'singers', to: 'singers#index'
       get 'note', to: 'note#index'
       post 'note', to: 'note#create'
-      delete 'note', to: 'note#destroy'
+      put 'note/:id', to: 'note#update'
+      delete 'note/:id', to: 'note#destroy'
     end
   end
 

@@ -13,6 +13,12 @@ class Api::V1::NoteController < ApplicationController
     render json: note
   end
 
+  def update
+    note = Note.find(params[:id])
+    note.update(name: params[:name], content: params[:content])
+    render json: note
+  end
+
   def destroy
     note = Note.find(params[:id])
     note.destroy
