@@ -23,7 +23,7 @@ export default function HelloWorld() {
       <main>
         <div id="Info">
           <h1>Here, Info page.</h1>
-          <Button variant='outline-primary'>Fetch 🐸</Button>
+          <Button variant='outline-primary' onClick={fetchSingers}>Fetch 🐸</Button>
         </div>
         <Table>
           <thead>
