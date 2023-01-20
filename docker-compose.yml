@@ -26,5 +26,7 @@ services:
       - db
   web:
     build: ./web
+    container_name: web
+    hostname: web
     ports:
       - "8080:80"
