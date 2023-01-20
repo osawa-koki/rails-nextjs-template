@@ -1,6 +1,7 @@
 # rails-nextjs-template
 
 🍶🍶🍶 Ruby on RailsとNext.jsによるWebアプリケーションテンプレート。  
+RailsをAPIモードで使用する。  
 
 ![成果物](./.development/img/fruit.gif)  
 
