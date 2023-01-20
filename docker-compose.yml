@@ -28,5 +28,3 @@ services:
     build: ./web
     ports:
       - "8080:80"
-    volumes:
-      - ./web/wwwroot:/var/www/html
