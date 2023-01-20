@@ -14,7 +14,7 @@ export default function HelloWorld() {
   const [content, setContent] = useState<string>("");
 
   const Submit = async () => {
-    const res = await fetch('/api/v1/notes', {
+    const res = await fetch('/api/v1/note', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
