@@ -29,7 +29,7 @@ export default function HelloWorld() {
   };
 
   const Delete = async (id: number) => {
-    const res = await fetch(`/api/v1/note/${id}`, {
+    await fetch(`/api/v1/note/${id}`, {
       method: 'DELETE',
     });
     setNotes(notes.filter((note) => note.id !== id));
