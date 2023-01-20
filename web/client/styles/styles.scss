@@ -25,6 +25,11 @@ main {
   ul, ol, p, div {
     margin-top: 1rem;
   }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 #Links {

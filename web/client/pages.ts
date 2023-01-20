@@ -16,6 +16,10 @@ const pages = [
     path: "/info",
     name: "Info",
   },
+  {
+    path: "/note",
+    name: "Note",
+  },
 ];
 
 export default pages;
