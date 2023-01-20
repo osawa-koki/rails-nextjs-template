@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15.1
+    container_name: db
+    hostname: raidbls_study_db
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: rails_nextjs
+      POSTGRES_DB: rails_nextjs
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
+  app:
+    build: ./api
+    container_name: api
+    hostname: api
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - ./api:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
