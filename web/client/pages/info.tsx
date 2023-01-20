@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 
 type Singer = {
   name: string;
-  birthday: Date;
+  birthday: string;
   hit_songs: string[];
 };
 
@@ -14,8 +14,10 @@ export default function HelloWorld() {
 
   const fetchSingers = async () => {
     const res = await fetch('/api/v1/singers');
-    const actresses = await res.json();
-    setSingers(actresses as Singer[]);
+    const singers = (await res.json()) as Singer[];
+    console.log(singers);
+
+    setSingers(singers);
   };
 
   return (
@@ -30,7 +32,7 @@ export default function HelloWorld() {
             <tr>
               <th>name</th>
               <th>birthday</th>
-              <th>birthplace</th>
+              <th>hit songs</th>
             </tr>
           </thead>
           <tbody>
