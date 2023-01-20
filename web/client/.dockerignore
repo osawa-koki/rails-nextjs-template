@@ -1,0 +1,7 @@
+node_modules/
+.next/
+LICENSE
+.editorconfig
+.gitignore
+.gitattributes
+README.md
