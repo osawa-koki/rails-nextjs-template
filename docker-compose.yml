@@ -13,7 +13,7 @@ services:
       POSTGRES_PASSWORD: password
     ports:
       - 5432:5432
-  app:
+  api:
     build: ./api
     container_name: api
     hostname: api
@@ -24,3 +24,9 @@ services:
       - "3000:3000"
     depends_on:
       - db
+  web:
+    build: ./web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./web/wwwroot:/var/www/html
