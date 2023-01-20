@@ -7,6 +7,7 @@
 ```shell
 docker compose up db -d [--build]
 docker compose up api -d [--build]
+docker compose up web -d [--build]
 ```
 
 ---
