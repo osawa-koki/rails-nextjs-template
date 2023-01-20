@@ -15,8 +15,6 @@ export default function HelloWorld() {
   const fetchSingers = async () => {
     const res = await fetch('/api/v1/singers');
     const singers = (await res.json()) as Singer[];
-    console.log(singers);
-
     setSingers(singers);
   };
 
