@@ -22,7 +22,7 @@ export default function HelloWorld() {
       body: JSON.stringify({ name: name, content: content }),
     });
     const note = (await res.json()) as Note;
-    setNotes([...notes, note]);
+    setNotes([note, ...notes]);
   };
 
   return (
@@ -42,6 +42,17 @@ export default function HelloWorld() {
           </Form>
           <div className="mt-3 center">
             <Button variant="outline-primary" onClick={Submit}>Submit 🐬</Button>
+          </div>
+          <hr />
+          <div className="mt-3">
+            <ul>
+              {notes.map((note) => (
+                <li key={note.name}>
+                  <p>{note.name}</p>
+                  <p>{note.content}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </main>
