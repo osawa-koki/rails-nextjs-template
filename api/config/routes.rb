@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'hello', to: 'hello#index'
       get 'singers', to: 'singers#index'
+      get 'note', to: 'note#index'
+      post 'note', to: 'note#create'
+      delete 'note', to: 'note#destroy'
     end
   end
 
