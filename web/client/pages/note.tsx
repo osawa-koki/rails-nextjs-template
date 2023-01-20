@@ -32,7 +32,6 @@ export default function HelloWorld() {
     const res = await fetch(`/api/v1/note/${id}`, {
       method: 'DELETE',
     });
-    await res.json();
     setNotes(notes.filter((note) => note.id !== id));
   };
 
@@ -73,8 +72,8 @@ export default function HelloWorld() {
                   <p>{note.content}</p>
                   <hr />
                   <div className="d-flex justify-content-end">
-                    <small className="ms-4">{note.created_at.toLocaleDateString()}</small>
-                    <small className="ms-4">{note.updated_at.toLocaleDateString()}</small>
+                    <small className="ms-4">{note.created_at.toString()}</small>
+                    <small className="ms-4">{note.updated_at.toString()}</small>
                   </div>
                 </Alert>
               ))
