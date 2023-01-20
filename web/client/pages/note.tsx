@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
 import Layout from "../components/Layout";
 
 type Note = {
+  id: number;
   name: string;
   content: string;
+  created_at: Date;
+  updated_at: Date;
 };
 
 export default function HelloWorld() {
@@ -26,12 +29,17 @@ export default function HelloWorld() {
   };
 
   useEffect(() => {
-    const fetchNotes = async () => {
-      const res = await fetch('/api/v1/note');
-      const notes = (await res.json()) as Note[];
-      setNotes(notes);
-    };
-    fetchNotes();
+    // const fetchNotes = async () => {
+    //   const res = await fetch('/api/v1/note');
+    //   const notes = (await res.json()) as Note[];
+    //   setNotes(notes);
+    // };
+    // fetchNotes();
+    setNotes([
+      { id: 1, name: "osawa koki", content: "hello world", created_at: new Date(), updated_at: new Date() },
+      { id: 2, name: "osawa koki", content: "hello world", created_at: new Date(), updated_at: new Date() },
+      { id: 3, name: "osawa koki", content: "hello world", created_at: new Date(), updated_at: new Date() },
+    ]);
   }, []);
 
   return (
@@ -54,14 +62,19 @@ export default function HelloWorld() {
           </div>
           <hr />
           <div className="mt-3">
-            <ul>
-              {notes.map((note) => (
-                <li key={note.name}>
-                  <p>{note.name}</p>
+            {
+              notes.map((note) => (
+                <Alert variant="secondary" key={note.id}>
+                  <Alert.Heading>{note.name}</Alert.Heading>
                   <p>{note.content}</p>
-                </li>
-              ))}
-            </ul>
+                  <hr />
+                  <div className="d-flex justify-content-end">
+                    <small className="ms-4">{note.created_at.toLocaleDateString()}</small>
+                    <small className="ms-4">{note.updated_at.toLocaleDateString()}</small>
+                  </div>
+                </Alert>
+              ))
+            }
           </div>
         </div>
       </main>
