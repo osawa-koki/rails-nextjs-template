@@ -2,6 +2,8 @@
 
 🍶🍶🍶 Ruby on RailsとNext.jsによるWebアプリケーションテンプレート。  
 
+![成果物](./.development/img/fruit.gif)  
+
 ## 実行方法
 
 ```shell
@@ -19,4 +21,4 @@ rails generate controller Api::V1::<API名>
 # docker-compose run api rails generate controller Api::V1::<API名>
 ```
 
-`routes.rb`でURLマッピングをし、`app/controllers`に作成されたファイルを改修する。  
+`routes.rb`でURLマッピングをし、`app/controllers`に作成されたファイルに実装する。  
