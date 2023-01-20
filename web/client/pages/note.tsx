@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import Layout from "../components/Layout";
 
@@ -24,6 +24,15 @@ export default function HelloWorld() {
     const note = (await res.json()) as Note;
     setNotes([note, ...notes]);
   };
+
+  useEffect(() => {
+    const fetchNotes = async () => {
+      const res = await fetch('/api/v1/note');
+      const notes = (await res.json()) as Note[];
+      setNotes(notes);
+    };
+    fetchNotes();
+  }, []);
 
   return (
     <Layout>
