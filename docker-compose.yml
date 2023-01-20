@@ -4,7 +4,7 @@ services:
   db:
     image: postgres:15.1
     container_name: db
-    hostname: raidbls_study_db
+    hostname: db
     volumes:
       - ./db:/var/lib/postgresql/data
     environment:
