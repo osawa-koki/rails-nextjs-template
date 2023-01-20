@@ -28,18 +28,21 @@ export default function HelloWorld() {
     setNotes([note, ...notes]);
   };
 
+  const Delete = async (id: number) => {
+    const res = await fetch(`/api/v1/note/${id}`, {
+      method: 'DELETE',
+    });
+    await res.json();
+    setNotes(notes.filter((note) => note.id !== id));
+  };
+
   useEffect(() => {
-    // const fetchNotes = async () => {
-    //   const res = await fetch('/api/v1/note');
-    //   const notes = (await res.json()) as Note[];
-    //   setNotes(notes);
-    // };
-    // fetchNotes();
-    setNotes([
-      { id: 1, name: "osawa koki", content: "hello world", created_at: new Date(), updated_at: new Date() },
-      { id: 2, name: "osawa koki", content: "hello world", created_at: new Date(), updated_at: new Date() },
-      { id: 3, name: "osawa koki", content: "hello world", created_at: new Date(), updated_at: new Date() },
-    ]);
+    const fetchNotes = async () => {
+      const res = await fetch('/api/v1/note');
+      const notes = (await res.json()) as Note[];
+      setNotes(notes);
+    };
+    fetchNotes();
   }, []);
 
   return (
@@ -64,7 +67,8 @@ export default function HelloWorld() {
           <div className="mt-3">
             {
               notes.map((note) => (
-                <Alert variant="secondary" key={note.id}>
+                <Alert variant="secondary" key={note.id} className='note-unit'>
+                  <button type="button" className="delete btn-close" onClick={() => {Delete(note.id)}}></button>
                   <Alert.Heading>{note.name}</Alert.Heading>
                   <p>{note.content}</p>
                   <hr />
